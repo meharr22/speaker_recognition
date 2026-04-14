@@ -11,13 +11,13 @@ MODEL_PATH = "model/voice_model.pkl"
 
 st.set_page_config(page_title="Speaker Recognition", layout="centered")
 
-st.title("🎙️ Speaker Recognition System")
+st.title(" Speaker Recognition System")
 
 # ========================= TABS =========================
-tab1, tab2 = st.tabs(["🧑‍🏫 Create Dataset", "🧪 Test Model"])
+tab1, tab2 = st.tabs([" Create Dataset", " Test Model"])
 
 # ======================================================
-# 🧑‍🏫 CREATE DATASET
+# CREATE DATASET
 # ======================================================
 with tab1:
     st.header("Add Speaker Data")
@@ -25,7 +25,7 @@ with tab1:
     name = st.text_input("Enter Speaker Name")
 
     # ---------------- UPLOAD ----------------
-    st.subheader("📁 Upload Audio")
+    st.subheader("Upload Audio")
 
     files = st.file_uploader(
         "Upload audio files",
@@ -42,15 +42,15 @@ with tab1:
                 file_path = os.path.join(folder, file.name)
 
                 if os.path.exists(file_path):
-                    st.warning(f"⚠️ {file.name} already exists, skipping")
+                    st.warning(f" {file.name} already exists, skipping")
                     continue
 
                 with open(file_path, "wb") as f:
                     f.write(file.getbuffer())
 
-            st.success(f"✅ Uploaded data saved for {name}")
+            st.success(f"Uploaded data saved for {name}")
         else:
-            st.error("❌ Provide name and files")
+            st.error("Provide name and files")
 
     st.divider()
 
@@ -80,27 +80,27 @@ with tab1:
                     file_path = os.path.join(folder, f"{audio_name}.wav")
 
                 if os.path.exists(file_path):
-                    st.error("❌ File already exists! Choose another name")
+                    st.error("File already exists! Choose another name")
                 else:
                     record_audio.export(file_path, format="wav")
-                    st.success(f"✅ Saved as {os.path.basename(file_path)}")
+                    st.success(f"Saved as {os.path.basename(file_path)}")
             else:
-                st.error("❌ Enter speaker name first")
+                st.error("Enter speaker name first")
 
     st.divider()
 
     # ---------------- TRAIN ----------------
-    st.header("⚙️ Train Model")
+    st.header("Train Model")
 
     if st.button("Train Model"):
         labels = train_model(DATASET_PATH, MODEL_PATH)
-        st.success("✅ Model trained successfully!")
+        st.success("Model trained successfully!")
 
 # ======================================================
-# 🧪 TEST MODEL
+#  TEST MODEL
 # ======================================================
 with tab2:
-    st.header("📁 Upload Audio")
+    st.header(" Upload Audio")
 
     test_file = st.file_uploader("Upload test audio", type=["wav", "flac"])
 
@@ -116,8 +116,8 @@ with tab2:
         if st.button("Predict Uploaded Audio"):
             speaker, conf = predict(temp_path, MODEL_PATH, labels)
 
-            st.success(f"🎯 Speaker: {speaker}")
-            st.write(f"📊 Confidence: {conf:.2f}")
+            st.success(f" Speaker: {speaker}")
+            st.write(f" Confidence: {conf:.2f}")
 
     st.divider()
 
@@ -141,5 +141,5 @@ with tab2:
         if st.button("Predict Recorded Audio"):
             speaker, conf = predict(temp_path, MODEL_PATH, labels)
 
-            st.success(f"🎯 Speaker: {speaker}")
-            st.write(f"📊 Confidence: {conf:.2f}")
+            st.success(f" Speaker: {speaker}")
+            st.write(f" Confidence: {conf:.2f}")
