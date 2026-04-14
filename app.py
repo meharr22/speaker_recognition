@@ -122,7 +122,7 @@ with tab2:
     st.divider()
 
     # ---------------- RECORD TEST ----------------
-    st.header("🎤 Record & Test")
+    st.header("Record & Test")
 
     audio = audiorecorder(
         "Click to record",
