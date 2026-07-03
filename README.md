@@ -117,11 +117,11 @@ http://localhost:8501
 
 ##  Future Enhancements
 
-- 💾 Persistent storage for datasets and trained models  
-- 🤖 Integration of deep learning models (CNN, LSTM, or Transformers)  
-- 🔊 Noise reduction and audio augmentation techniques  
-- 👥 Multi-user support with authentication system  
-- 📊 Advanced visualization of prediction confidence and analytics  
+-  Persistent storage for datasets and trained models  
+-  Integration of deep learning models (CNN, LSTM, or Transformers)  
+-  Noise reduction and audio augmentation techniques  
+-  Multi-user support with authentication system  
+-  Advanced visualization of prediction confidence and analytics  
 
 ---
 
